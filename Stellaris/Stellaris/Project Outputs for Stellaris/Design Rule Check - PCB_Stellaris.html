@@ -1,0 +1,413 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">29/11/2021</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19:20:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc" class="file"><acronym title="C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc">C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">23</td></tr>
+</table>
+</td>
+</table><a name="IDDKTP4KIRQWVMGO5GPZOOOT24RGPINTANVAISVZCLMAIPI4MHPQKM"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRNPGEII5PR4NMCCDLWWQZTTXSPFCPHE4QEV00ICIB5VE4Z0AVBPI">Clearance Constraint (Gap=0.15mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDH5L2VIHVNOVMLGCOMZKTQCUA1JW23VWAQ3HPBBWGYCGRVDNHPOH">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAO2HKUNX00NDEOGMJ02HOFM5LI1AI0TGC0UF1S1Z251VCVW4OWM">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZFSXPBUZZIBOIAT3N2TQ1PQNDFJWTY4XYFLFSS2UO0R0AAAMMFM">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA20W5MQUAXSVBDXYVIROBC4O3BYH5BZGPWW2QTJWRDIUQW5PRIKP">Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTDY2WKJ2A1V3KYPW3WX4ICXHYCP3XCK4DRWKYMNXT0XEPW5BUJTI">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4BVSOZ4OUNDNDNSSJ3DWXODRZD4E3NVHDL2L33PINSGULWSGD4WE">Minimum Annular Ring (Minimum=0.15mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCAVORUHOCKWJJI4XXUXAUT0SSKYNZLEWKIL4YNC3YWEE0QUHG41P">Hole Size Constraint (Min=0.25mm) (Max=6mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUHF3Z2YKE0OUKZLG5L1ASZJDSDGQTDQQDV2ZFQMKLQS3D4LOU0ZO">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWP12BNQ0EDMJKWXRXOXOYWNSEVGN4XEG5AYHRIS0ZQM1SBEX1RF">Minimum Solder Mask Sliver (Gap=0.03mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBTADX3TVUQ4DGXG4DILRUOUHCH2A2NCIYNVEPPGN5HPBTXBD2WG">Silk To Solder Mask (Clearance=0.03mm) (IsPad),(All)</a></td>
+<td class="column2">19</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVXR5YDMMZACEJIC5VKEPBSSWNOM3FFUQF35FZQHLMDSNGB1KBHHJ">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVKJBJ5GNKVFPOICW1PQ4MDK4RHXWDYIU05RWLTBKN2GQEFZFWCUN">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJ1O3I2GNRSAXPZIE2PY3XQDKFI1L2JHUQW4KQ3KDCZOWOAJ1OGVP">Length Constraint (Min=0.1mm) (Max=2539.975mm) (All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYXE1W3QMEFO4J3MN30CY3JHYDK51XXNZ4SMXF1PDFQ3UXODZNDMB">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">23</td>
+</tr>
+</table><br><a name="IDAO2HKUNX00NDEOGMJ02HOFM5LI1AI0TGC0UF1S1Z251VCVW4OWM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5030.459mil|Location2.X=5310mil|Location1.Y=2500.126mil|Location2.Y=2715mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5030.459mil|Location2.X=5310mil|Location1.Y=2500.126mil|Location2.Y=2715mil|Absolute=True">Un-Routed Net Constraint: Net +MCU_PWR Between Track (19.859mm,20.45mm)(20.713mm,20.45mm) on L1 And Via (22.733mm,20.828mm) from L1 to L4 </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDBTADX3TVUQ4DGXG4DILRUOUHCH2A2NCIYNVEPPGN5HPBTXBD2WG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.03mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6199.102mil|Location2.X=6200.889mil|Location1.Y=1875.388mil|Location2.Y=1877.175mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6199.102mil|Location2.X=6200.889mil|Location1.Y=1875.388mil|Location2.Y=1877.175mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Arc (47.629mm,2.057mm) on Top Overlay And Pad H8-1(48.768mm,2.057mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.717mil|Location2.X=5899.504mil|Location1.Y=4012.106mil|Location2.Y=4013.894mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.717mil|Location2.X=5899.504mil|Location1.Y=4012.106mil|Location2.Y=4013.894mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad C27-2(40.386mm,55.88mm) on L1 And Track (40.224mm,56.337mm)(40.224mm,56.728mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.717mil|Location2.X=5899.504mil|Location1.Y=4012.106mil|Location2.Y=4013.894mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5897.717mil|Location2.X=5899.504mil|Location1.Y=4012.106mil|Location2.Y=4013.894mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad C27-2(40.386mm,55.88mm) on L1 And Track (40.224mm,56.337mm)(45.685mm,56.337mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4936.245mil|Location2.X=4938.032mil|Location1.Y=4051.075mil|Location2.Y=4052.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4936.245mil|Location2.X=4938.032mil|Location1.Y=4051.075mil|Location2.Y=4052.862mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad C29-2(16.256mm,56.896mm) on L1 And Track (9.995mm,57.327mm)(17.495mm,57.327mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5506.39mil|Location2.X=5508.177mil|Location1.Y=3312.886mil|Location2.Y=3314.673mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5506.39mil|Location2.X=5508.177mil|Location1.Y=3312.886mil|Location2.Y=3314.673mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad Q1-1(30.734mm,38.227mm) on L1 And Track (30.184mm,37.777mm)(30.184mm,39.977mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5506.39mil|Location2.X=5508.177mil|Location1.Y=3364.067mil|Location2.Y=3365.854mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5506.39mil|Location2.X=5508.177mil|Location1.Y=3364.067mil|Location2.Y=3365.854mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad Q1-2(30.734mm,39.527mm) on L1 And Track (30.184mm,37.777mm)(30.184mm,39.977mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5467.02mil|Location2.X=5468.807mil|Location1.Y=3310.917mil|Location2.Y=3312.705mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5467.02mil|Location2.X=5468.807mil|Location1.Y=3310.917mil|Location2.Y=3312.705mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad Q1-3(28.834mm,38.877mm) on L1 And Track (29.384mm,37.777mm)(29.384mm,39.977mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5852.02mil|Location2.X=5853.807mil|Location1.Y=3235.917mil|Location2.Y=3237.705mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5852.02mil|Location2.X=5853.807mil|Location1.Y=3235.917mil|Location2.Y=3237.705mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad Q2-1(38.613mm,36.972mm) on L1 And Track (39.163mm,35.222mm)(39.163mm,37.422mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5852.02mil|Location2.X=5853.807mil|Location1.Y=3184.736mil|Location2.Y=3186.524mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5852.02mil|Location2.X=5853.807mil|Location1.Y=3184.736mil|Location2.Y=3186.524mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad Q2-2(38.613mm,35.672mm) on L1 And Track (39.163mm,35.222mm)(39.163mm,37.422mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5891.39mil|Location2.X=5893.177mil|Location1.Y=3237.886mil|Location2.Y=3239.673mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5891.39mil|Location2.X=5893.177mil|Location1.Y=3237.886mil|Location2.Y=3239.673mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad Q2-3(40.513mm,36.322mm) on L1 And Track (39.963mm,35.222mm)(39.963mm,37.422mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5522.821mil|Location2.X=5524.609mil|Location1.Y=3195.592mil|Location2.Y=3197.38mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5522.821mil|Location2.X=5524.609mil|Location1.Y=3195.592mil|Location2.Y=3197.38mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad R1-1(30.734mm,36.068mm) on L1 And Text "R17" (28.702mm,34.798mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5002.886mil|Location2.X=5004.673mil|Location1.Y=4051.075mil|Location2.Y=4052.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5002.886mil|Location2.X=5004.673mil|Location1.Y=4051.075mil|Location2.Y=4052.862mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad R28-1(17.526mm,56.896mm) on L1 And Track (17.495mm,57.327mm)(17.495mm,57.827mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5002.886mil|Location2.X=5004.673mil|Location1.Y=4051.075mil|Location2.Y=4052.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5002.886mil|Location2.X=5004.673mil|Location1.Y=4051.075mil|Location2.Y=4052.862mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad R28-1(17.526mm,56.896mm) on L1 And Track (9.995mm,57.327mm)(17.495mm,57.327mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5003.831mil|Location2.X=5005.618mil|Location1.Y=3793.24mil|Location2.Y=3795.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5003.831mil|Location2.X=5005.618mil|Location1.Y=3793.24mil|Location2.Y=3795.028mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad R7-1(17.526mm,51.16mm) on L1 And Track (17.519mm,50.301mm)(17.519mm,50.651mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5022.209mil|Location2.X=5023.996mil|Location1.Y=3789.224mil|Location2.Y=3791.012mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5022.209mil|Location2.X=5023.996mil|Location1.Y=3789.224mil|Location2.Y=3791.012mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad R7-1(17.526mm,51.16mm) on L1 And Track (17.519mm,50.676mm)(19.844mm,50.676mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5072.209mil|Location2.X=5073.996mil|Location1.Y=3789.224mil|Location2.Y=3791.012mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5072.209mil|Location2.X=5073.996mil|Location1.Y=3789.224mil|Location2.Y=3791.012mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad R7-2(18.796mm,51.16mm) on L1 And Track (17.519mm,50.676mm)(19.844mm,50.676mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5629.146mil|Location2.X=5630.933mil|Location1.Y=3376.823mil|Location2.Y=3378.61mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5629.146mil|Location2.X=5630.933mil|Location1.Y=3376.823mil|Location2.Y=3378.61mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad T1-1(33.752mm,39.751mm) on L1 And Track (33.302mm,40.301mm)(35.502mm,40.301mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5680.327mil|Location2.X=5682.114mil|Location1.Y=3376.823mil|Location2.Y=3378.61mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5680.327mil|Location2.X=5682.114mil|Location1.Y=3376.823mil|Location2.Y=3378.61mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad T1-2(35.052mm,39.751mm) on L1 And Track (33.302mm,40.301mm)(35.502mm,40.301mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5682.295mil|Location2.X=5684.083mil|Location1.Y=3416.193mil|Location2.Y=3417.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5682.295mil|Location2.X=5684.083mil|Location1.Y=3416.193mil|Location2.Y=3417.98mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.03mm) Between Pad T1-3(34.402mm,41.651mm) on L1 And Track (33.302mm,41.101mm)(35.502mm,41.101mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJ1O3I2GNRSAXPZIE2PY3XQDKFI1L2JHUQW4KQ3KDCZOWOAJ1OGVP"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Length Constraint (Min=0.1mm) (Max=2539.975mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5636.071mil|Location2.X=5710.937mil|Location1.Y=3814.142mil|Location2.Y=3829.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5636.071mil|Location2.X=5710.937mil|Location1.Y=3814.142mil|Location2.Y=3829.953mil|Absolute=True">Length Constraint: (0mm &lt; 0.1mm) Net ICDI_TDI Actual Length = 0mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5636.071mil|Location2.X=5710.937mil|Location1.Y=3794.457mil|Location2.Y=3810.268mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5636.071mil|Location2.X=5710.937mil|Location1.Y=3794.457mil|Location2.Y=3810.268mil|Absolute=True">Length Constraint: (0mm &lt; 0.1mm) Net ICDI_TDO Actual Length = 0mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5336.622mil|Location2.X=5352.433mil|Location1.Y=2374.063mil|Location2.Y=2448.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5336.622mil|Location2.X=5352.433mil|Location1.Y=2374.063mil|Location2.Y=2448.929mil|Absolute=True">Length Constraint: (0mm &lt; 0.1mm) Net PB4 Actual Length = 0mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

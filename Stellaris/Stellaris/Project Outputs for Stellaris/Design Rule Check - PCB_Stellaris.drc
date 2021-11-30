@@ -1,0 +1,77 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\diego\OneDrive\Escritorio\UVG\PCBS\Stellaris\Stellaris\Stellaris\PCB_Stellaris.PcbDoc
+Date     : 29/11/2021
+Time     : 19:20:02
+
+Processing Rule : Clearance Constraint (Gap=0.15mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net +MCU_PWR Between Track (19.859mm,20.45mm)(20.713mm,20.45mm) on L1 And Via (22.733mm,20.828mm) from L1 to L4 
+Rule Violations :1
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=0.15mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.25mm) (Max=6mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.03mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.03mm) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Arc (47.629mm,2.057mm) on Top Overlay And Pad H8-1(48.768mm,2.057mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad C27-2(40.386mm,55.88mm) on L1 And Track (40.224mm,56.337mm)(40.224mm,56.728mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad C27-2(40.386mm,55.88mm) on L1 And Track (40.224mm,56.337mm)(45.685mm,56.337mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad C29-2(16.256mm,56.896mm) on L1 And Track (9.995mm,57.327mm)(17.495mm,57.327mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad Q1-1(30.734mm,38.227mm) on L1 And Track (30.184mm,37.777mm)(30.184mm,39.977mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad Q1-2(30.734mm,39.527mm) on L1 And Track (30.184mm,37.777mm)(30.184mm,39.977mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad Q1-3(28.834mm,38.877mm) on L1 And Track (29.384mm,37.777mm)(29.384mm,39.977mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad Q2-1(38.613mm,36.972mm) on L1 And Track (39.163mm,35.222mm)(39.163mm,37.422mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad Q2-2(38.613mm,35.672mm) on L1 And Track (39.163mm,35.222mm)(39.163mm,37.422mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad Q2-3(40.513mm,36.322mm) on L1 And Track (39.963mm,35.222mm)(39.963mm,37.422mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad R1-1(30.734mm,36.068mm) on L1 And Text "R17" (28.702mm,34.798mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad R28-1(17.526mm,56.896mm) on L1 And Track (17.495mm,57.327mm)(17.495mm,57.827mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad R28-1(17.526mm,56.896mm) on L1 And Track (9.995mm,57.327mm)(17.495mm,57.327mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad R7-1(17.526mm,51.16mm) on L1 And Track (17.519mm,50.301mm)(17.519mm,50.651mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad R7-1(17.526mm,51.16mm) on L1 And Track (17.519mm,50.676mm)(19.844mm,50.676mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad R7-2(18.796mm,51.16mm) on L1 And Track (17.519mm,50.676mm)(19.844mm,50.676mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad T1-1(33.752mm,39.751mm) on L1 And Track (33.302mm,40.301mm)(35.502mm,40.301mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad T1-2(35.052mm,39.751mm) on L1 And Track (33.302mm,40.301mm)(35.502mm,40.301mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.03mm) Between Pad T1-3(34.402mm,41.651mm) on L1 And Track (33.302mm,41.101mm)(35.502mm,41.101mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+Rule Violations :19
+
+Processing Rule : Silk to Silk (Clearance=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Length Constraint (Min=0.1mm) (Max=2539.975mm) (All)
+   Violation between Length Constraint: (0mm < 0.1mm) Net ICDI_TDI Actual Length = 0mm
+   Violation between Length Constraint: (0mm < 0.1mm) Net ICDI_TDO Actual Length = 0mm
+   Violation between Length Constraint: (0mm < 0.1mm) Net PB4 Actual Length = 0mm
+Rule Violations :3
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 23
+Waived Violations : 0
+Time Elapsed        : 00:00:02

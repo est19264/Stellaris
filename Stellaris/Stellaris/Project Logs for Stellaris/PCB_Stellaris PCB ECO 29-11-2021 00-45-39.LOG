@@ -1,0 +1,10 @@
+Added Pin To Net: NetName=NetJ9_6 Pin=R2-1
+Added Net: Name=NetJ9_6
+Added Pin To Net: NetName=NetJ11_2 Pin=U4-43
+Added Net: Name=NetJ11_2
+Added Pin To Net: NetName=NetJ11_3 Pin=U4-44
+Added Net: Name=NetJ11_3
+Added Pin To Net: NetName=NetJ11_6 Pin=R25-1
+Added Net: Name=NetJ11_6
+Added Room: Name=ESQUEMATICOS1
+Added Room: Name=ESQUEMATICOS2
